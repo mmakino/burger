@@ -24,7 +24,7 @@ class ORM {
   //
   // Select all rows
   //
-  selectAll(table = this.table, columns = '*') {
+  selectAll(table = this.table, columns = 'id, burger_name, devoured') {
     const query = 'SELECT ?? FROM ??';
     
     return new Promise((resolve, reject) => {
