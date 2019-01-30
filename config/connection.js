@@ -19,8 +19,8 @@ const local = {
 };
 const heroku = process.env.CLEARDB_DATABASE_URL;
 const connParams = (process.env.PORT) ? heroku : local;
-// const connection = mysql.createConnection(connParams);
-const connection = mysql.createConnection(process.env.CLEARDB_DATABASE_URL);
+const connection = mysql.createConnection(connParams);
+// const connection = mysql.createConnection(process.env.CLEARDB_DATABASE_URL);
 
 // Attempt to connecto to the database
 connection.connect(error => {

@@ -34,5 +34,5 @@ router.start();
 
 // Start the server to listen to the port
 app.listen(PORT, () => {
-  console.log('Server started listening on part ' + PORT);
+  console.log('Server started listening on port ' + PORT);
 });
