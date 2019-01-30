@@ -12,7 +12,7 @@ const mysql = require('mysql');
 // Set up connection parameters
 const local = {
   host: 'localhost',
-  port: 3306,
+  port: process.env.PORT || 3306,
   user: process.env.MYSQL_USER,        // in .env file
   password: process.env.MYSQL_PASSWD,  // in .env file
   database: 'burgers_db'
