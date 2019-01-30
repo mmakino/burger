@@ -1,6 +1,6 @@
 ## This Burger App has been verified fully functional on
-    * __Bash on Windows 10__
-    * heroku local
+  * __Bash on Windows 10__
+  * __heroku local__
     
     * However, for some reason, it is experiencing tremendous difficulty running on the Heroku server. And debugging is heineously difficult regardless the verbose log messages.
 
