@@ -29,7 +29,11 @@ app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
 // Start routers
-router.start();
+// router.start();
+router.index();
+router.add();
+router.devour();
+router.remove();
 
 // Start the server to listen to the port
 app.listen(PORT, () => {
