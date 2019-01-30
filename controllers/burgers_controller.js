@@ -52,11 +52,17 @@ class Router {
   //
   add() {
     this.app.post('/add', (req, res) => {
-      burger.add(req.body.burgerName)
-        .then(result => {
-          res.redirect('/');
-        })
-        .catch(error => console.log(error));
+      const burgerName = req.body.burgerName;
+      if (/^\W*$/.test(burgerName)) {
+        console.log('No empty burger name allowed');
+      }
+      else {
+        burger.add(burgerName)
+          .then(result => {
+            res.redirect('/');
+          })
+          .catch(error => console.log(error));
+      }
     });
   }
   
