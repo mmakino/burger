@@ -6,16 +6,20 @@ Set up a connection to MySQL database and export the connection object
 
 'use strict';
 
+require('dotenv').config();
 const mysql = require('mysql');
 
 // Set up connection parameters
-const connection = mysql.createConnection({
+const local = {
   host: 'localhost',
   port: 3306,
-  user: 'root',
-  password: 'password',
+  user: process.env.MYSQL_USER,        // in .env file
+  password: process.env.MYSQL_PASSWD,  // in .env file
   database: 'burgers_db'
-});
+};
+const heroku = process.env.CLEARDB_DATABASE_URL;
+const connParams = (process.env.PORT) ? heroku : local;
+const connection = mysql.createConnection(connParams);
 
 // Attempt to connecto to the database
 connection.connect(error => {
