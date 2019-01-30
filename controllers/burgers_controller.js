@@ -106,7 +106,4 @@ class Router {
 }
 
 // Export the Router
-module.exports = function(expressApp) {
-  const router = new Router(expressApp);
-  return router;
-}
+module.exports = Router;

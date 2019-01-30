@@ -14,8 +14,9 @@ const exphbs  = require('express-handlebars');
 
 const app = express();
 
-// Load burger specific module(s)
-const router = require('./controllers/burgers_controller')(app);
+// Load router module(s) and initialize
+const Router = require('./controllers/burgers_controller');
+const router = new Router(app);
 
 // Make use of the body-parsers
 app.use(express.urlencoded({ extended: true }));
