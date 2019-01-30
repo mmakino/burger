@@ -12,6 +12,7 @@
 
 * Heroku
   * Live app - https://aqueous-beach-82382.herokuapp.com
+  * _likely crashed and unavailable_ -- see [the details](README-heroku.md)
 * GitHub
   * Repository - https://github.com/mmakino/burger
 
