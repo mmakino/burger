@@ -24,7 +24,7 @@ class ORM {
   //
   // Select all rows
   //
-  // CAUTION: heroku 
+  // CAUTION: heroku doesn't seem to like "*" for unknown reason
   //
   selectAll(table = this.table, columns = '*') {
     // const query = 'SELECT ?? FROM ??';
