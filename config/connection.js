@@ -17,10 +17,11 @@ const local = {
   password: process.env.MYSQL_PASSWD,  // in .env file
   database: 'burgers_db'
 };
-const heroku = process.env.CLEARDB_DATABASE_URL;
-const connParams = (process.env.PORT) ? heroku : local;
-const connection = mysql.createConnection(connParams);
-// const connection = mysql.createConnection(process.env.CLEARDB_DATABASE_URL);
+// const heroku = process.env.CLEARDB_DATABASE_URL;
+// const connParams = (process.env.PORT) ? heroku : local;
+// const connection = mysql.createConnection(connParams);
+const dbURL = process.env.CLEARDB_DATABASE_URL || 'mysql://b190ddbf81d249:b622340f@us-cdbr-iron-east-03.cleardb.net/heroku_37763627fe7031b?reconnect=true';
+const connection = mysql.createConnection(process.env.CLEARDB_DATABASE_URL);
 
 // Attempt to connecto to the database
 connection.connect(error => {
