@@ -24,11 +24,15 @@ class ORM {
   //
   // Select all rows
   //
+  // CAUTION: heroku 
+  //
   selectAll(table = this.table, columns = '*') {
-    const query = 'SELECT ?? FROM ??';
+    // const query = 'SELECT ?? FROM ??';
+    const query = 'SELECT id, burger_name, devoured FROM burgers';
     
     return new Promise((resolve, reject) => {
-      this.conn.query(query, [columns, table], (error, result) => {
+      // this.conn.query(query, [columns, table], (error, result) => {
+      this.conn.query(query, (error, result) => {
         if (error) reject(error);
         resolve(result);
       });
