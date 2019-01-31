@@ -42,8 +42,9 @@ class Router {
       .then(burgers => {
         res.render('index', {
           burgers: burgers
-        }); 
+        });
       })
+      .catch(error => console.log(error));
     });
   }
   
@@ -100,7 +101,6 @@ class Router {
           console.log(error);
           res.redirect('/');
         });
-
     });
   }
 }

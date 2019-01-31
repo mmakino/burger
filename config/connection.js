@@ -12,6 +12,11 @@ const { Client } = require('pg');
 const connection = new Client({
   connectionString: process.env.DATABASE_URL,
   ssl: true,
+  // user: '<postgres>',
+  // host: 'localhost',
+  // database: 'burger_db',
+  // password: '<password>',
+  // port: 5432,
 });
 
 connection.connect();
