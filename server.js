@@ -6,7 +6,7 @@ A main app server javascript for the burger app
 'use strict';
 
 // this is not used but an desparate attempt to make this app work on heroku
-const dbConnection = require('./config.connection');
+const dbConnection = require('./config/connection');
 
 const path = require('path');
 const PORT = process.env.PORT || 3000;
