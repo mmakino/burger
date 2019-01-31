@@ -19,7 +19,8 @@ $(document).ready(() => {
       type: "POST",
       data: aBurger
     }).then(
-      function() {
+      function(res) {
+        $("#burger").val("");
         console.log("Added a burger");
         // Reload the page to get the updated list
         location.reload();
