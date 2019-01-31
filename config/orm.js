@@ -34,7 +34,7 @@ class ORM {
       // this.conn.query(query, [columns, table], (error, result) => {
       this.conn.query(query, (error, result) => {
         if (error) reject(error);
-        resolve(result);
+        resolve(result.rows);
       });
     });
   }
@@ -47,10 +47,10 @@ class ORM {
       burger_name: burgerName,
       devoured: devoured 
     }
-    const query = 'INSERT INTO ?? SET ?';
+    const query = `INSERT INTO ${this.table}(burger_name, devoured) VALUES($1, $2)`;
     
     return new Promise((resolve, reject) => {
-      this.conn.query(query, [this.table, data], (error, result) => {
+      this.conn.query(query, [data.burger_name, data.devoured], (error, result) => {
         if (error) reject(error);
         resolve(result);
       });
@@ -65,10 +65,10 @@ class ORM {
   // * obj = { burger_name: <name>, devoured: <true/false> }
   //
   updateOne(id, obj) {
-    const query = 'UPDATE ?? SET ? WHERE id = ?';
+    const query = `UPDATE ${this.table} SET devoured = $1 WHERE id = $2`;
     
     return new Promise((resolve, reject) => {
-      this.conn.query(query, [this.table, obj, id], (error, result, fields) => {
+      this.conn.query(query, [obj.devoured, id], (error, result, fields) => {
         if (error) reject(error);
         resolve(result);
       });
@@ -83,10 +83,10 @@ class ORM {
   // * obj = <ignored>
   //
   deleteOne(id, obj) {
-    const query = 'DELETE FROM ?? WHERE id = ?';
+    const query = `DELETE FROM ${this.table} WHERE id = $1`;
     
     return new Promise((resolve, reject) => {
-      this.conn.query(query, [this.table, id], (error, result, fields) => {
+      this.conn.query(query, [id], (error, result, fields) => {
         if (error) reject(error);
         resolve(result);
       });

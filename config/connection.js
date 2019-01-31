@@ -6,8 +6,8 @@ Set up a connection to MySQL database and export the connection object
 
 'use strict';
 
-require('dotenv').config();
-const mysql = require('mysql');
+// require('dotenv').config();
+const { Client } = require('pg');
 
 // Set up connection parameters
 const local = {
@@ -31,9 +31,11 @@ connection.connect(error => {
     console.error('ERROR: Unable to make a connection' + error.stack);
     return;
   }
-  
+   
   console.log('Connected to database as ID: ' + connection.threadId);
 });
+
+connection.connect();
 
 // Export the connection
 module.exports = connection;
