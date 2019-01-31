@@ -17,10 +17,13 @@ const local = {
   password: process.env.MYSQL_PASSWD,  // in .env file
   database: 'burgers_db'
 };
-const heroku = process.env.CLEARDB_DATABASE_URL;
-const connParams = (process.env.PORT) ? heroku : local;
-const connection = mysql.createConnection(connParams);
+
+// const cleardb = process.env.CLEARDB_DATABASE_URL;
 // const connection = mysql.createConnection(process.env.CLEARDB_DATABASE_URL);
+
+const jawsdb = process.env.DATABASE_URL;
+const connParams = (process.env.DATABASE_URL) ? jawsdb : local;
+const connection = mysql.createConnection(connParams);
 
 // Attempt to connecto to the database
 connection.connect(error => {

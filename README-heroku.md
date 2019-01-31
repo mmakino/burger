@@ -1,3 +1,4 @@
+# Summary
 ## This Burger App has been _verified fully functional_ on the following environments:
   * __Bash on Windows 10 64bit__
      * Chrome browswer
@@ -5,12 +6,18 @@
      * Works fine with Firefox and Chromium web browsers
   * __heroku local__
      * Note that the database is still ClearDB MySQL on heroku.
-     * Occasionally encounters an error with mysql server at heroku. 
-    
-    * However, for some reason, it is experiencing tremendous difficulty running on the Heroku server. And debugging is heineously difficult regardless the verbose log messages.
-    * __At this point, I consider Heroku with mysql server is super flaky and fragile.__
-
-## Deployed App on Heroku Server Crash
+     * Occasionally encounters an error with mysql server at heroku.
+## Observation and Tentative Conclusion 
+   * However, for some reason, it is experiencing tremendous difficulty running on the Heroku server. And debugging is heineously difficult regardless the verbose log messages.
+   * __At this point, I consider Heroku with mysql server is super flaky and fragile.__
+## Additional Attempt using PostgreSQL
+   * Because MySQL is not offically supported database by heroku, I created a branch that uses PostgreSQL. After I converted mysql code to pg code and made all necessary changes and verified everything functional locally, pushed it to heroku. Alas, it still keeps giving up... though __the error code is now consistently `H12`__.  
+   ```
+   2019-01-31T08:46:03.665910+00:00 heroku[router]: at=error code=H12 desc="Request timeout" method=GET path="/" host=aqueous-beach-82382.herokuapp.com request_id=75def04b-cf27-474a-91c6-64a477854baa fwd="172.92.154.189" dyno=web.1 connect=1ms service=30000ms status=503 bytes=0 protocol=https
+   ```
+   Because the last version with MySQL occasionally worked for short period of times, I will try to switch back to the old version...
+   
+## Deployed App on Heroku Server Crash Log
 * `heroku apps:errors`
     ```
     moto@esb:~/github/burger (master *)$ heroku apps:errors

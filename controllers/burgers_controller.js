@@ -53,6 +53,7 @@ class Router {
   add() {
     this.app.post('/add', (req, res) => {
       const burgerName = req.body.burgerName;
+
       if (/^\W*$/.test(burgerName)) {
         console.log('No empty burger name allowed');
       }
