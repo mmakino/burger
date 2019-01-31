@@ -1,8 +1,14 @@
-## This Burger App has been verified fully functional on
-  * __Bash on Windows 10__
+## This Burger App has been _verified fully functional_ on the following environments:
+  * __Bash on Windows 10 64bit__
+     * Chrome browswer
+  * __Linux kernel version 4.15.0-43-gneric, Linux Mint 18.3 with mysql-server 5.7__
+     * Works fine with Firefox and Chromium web browsers
   * __heroku local__
+     * Note that the database is still ClearDB MySQL on heroku.
+     * Occasionally encounters an error with mysql server at heroku. 
     
     * However, for some reason, it is experiencing tremendous difficulty running on the Heroku server. And debugging is heineously difficult regardless the verbose log messages.
+    * __At this point, I consider Heroku with mysql server is super flaky and fragile.__
 
 ## Deployed App on Heroku Server Crash
 * `heroku apps:errors`
