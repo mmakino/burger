@@ -12,7 +12,7 @@
 
 * Heroku
   * Live app - https://aqueous-beach-82382.herokuapp.com
-    * _likely in a crashed state and unavailable_ -- see [the details](README-heroku.md)
+    * Now it seems to be working ok after having changed to `JawsDB MySQL`. _it was constantly crashing and unavailable when using `ClearDB MySQL` and `pg`_ -- see [the details](README-heroku.md)
 * GitHub
   * Repository - https://github.com/mmakino/burger
 
